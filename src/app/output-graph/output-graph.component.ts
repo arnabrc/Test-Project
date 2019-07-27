@@ -24,8 +24,23 @@ export class OutputGraphComponent implements OnInit {
       type: 'scatter',
       height: 700
     },
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: true
+        },
+        pointStart: 2020
+      },
+      line: {
+        // shared options for all line series
+      },
+      scatter: {
+        lineWidth: 2
+      }
+    },
     title: {
-      text: 'Sample Scatter Plot'
+      // text: 'Sample Scatter Plot'
+      text: 'Income Scatter Plot'
     },
     credits: {
       enabled: false
@@ -49,17 +64,49 @@ export class OutputGraphComponent implements OnInit {
     },
     series: [
       {
-        name: 'Normal',
+        name: 'Point-1',
         turboThreshold: 500000,
         // data: [[new Date('2018-01-25 18:38:31').getTime(), 2]]
-        data: [[new Date('2019-07-21 00:00:01').getTime(), 500000]]
+        data: [
+          [new Date('2019-07-21 00:00:01').getTime(), 500000],
+          [new Date('2029-07-21 00:00:01').getTime(), 1000000],
+          [new Date('2039-07-21 00:00:01').getTime(), 2000000],
+          [new Date('2049-07-21 00:00:01').getTime(), 4000000],
+          [new Date('2059-07-21 00:00:01').getTime(), 7000000],
+          [new Date('2069-07-21 00:00:01').getTime(), 10000000]
+        ]
+      }
+      /*},
+      {
+        name: 'Point-2',
+        turboThreshold: 500000,
+        // data: [[new Date('2018-01-25 18:38:31').getTime(), 2]]
+        data: [[new Date('2029-07-21 00:00:01').getTime(), 1000000]]
       },
       {
-        name: 'Abnormal',
+        name: 'Point-3',
+        turboThreshold: 500000,
+        // data: [[new Date('2018-01-25 18:38:31').getTime(), 2]]
+        data: [[new Date('2039-07-21 00:00:01').getTime(), 2000000]]
+      },
+      {
+        name: 'Point-4',
+        turboThreshold: 500000,
+        // data: [[new Date('2018-01-25 18:38:31').getTime(), 2]]
+        data: [[new Date('2049-07-21 00:00:01').getTime(), 4000000]]
+      },
+      {
+        name: 'Point-5',
+        turboThreshold: 500000,
+        // data: [[new Date('2018-01-25 18:38:31').getTime(), 2]]
+        data: [[new Date('2059-07-21 00:00:01').getTime(), 7000000]]
+      },
+      {
+        name: 'Point-6',
         turboThreshold: 500000,
         // data: [[new Date('2018-02-05 18:38:31').getTime(), 7]]
-        data: [[new Date('2069-07-21 00:00:01').getTime(), 1000000]]
-      }
+        data: [[new Date('2069-07-21 00:00:01').getTime(), 10000000]]
+      }*/
     ]
   };
   constructor(public http: HttpClient) { }
